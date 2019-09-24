@@ -1,0 +1,220 @@
+@import "header.scss";
+@import "business-card.scss";
+@import "about-me.scss";
+@import "contacts.scss";
+@import "footer.scss";
+* {
+    outline: none!important;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Raleway';
+    height: 100%;
+}
+
+body {
+    background-color: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+.blur {
+    filter: blur(1rem);
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.main-content__heading {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 3.5rem;
+    line-height: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    &::before {
+        content: "";
+        display: block;
+        width: 17vw;
+        position: absolute;
+        top: 1.75rem;
+        left: 0;
+        border-bottom: 3px solid #000000;
+    }
+    &::after {
+        content: "";
+        display: block;
+        width: 20vw;
+        position: absolute;
+        top: 1.75rem;
+        right: 0;
+        border-bottom: 3px solid #000000;
+    }
+}
+
+.text-content {
+    padding-bottom: 1.2rem;
+    &::first-letter {
+        padding-left: 2.4rem;
+    }
+}
+
+.main-content__section-description {
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    font-weight: bold;
+    font-style: italic;
+    margin: 2.4rem 0 1.2rem;
+    text-align: left;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.document-wrapper {
+    position: absolute;
+    top: 20rem;
+    box-sizing: border-box;
+    width: 90%;
+    height: calc(100% - 41rem);
+    max-width: 1360px;
+    min-width: 300px;
+    padding: 2.4rem 4.2rem 1.2rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    background-color: #e8e8e8;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        position: absolute;
+        width: 10px;
+        &-track {
+            background-color: #efefef;
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.17);
+        }
+        &-thumb {
+            min-height: 30px;
+            border-radius: 5px;
+            background-color: #bbbdc0;
+        }
+    }
+}
+
+section:target {
+    animation: highlight 0.8s ease-out;
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 6px;
+    }
+}
+
+@keyframes highlight {
+    0% {
+        background-color: #FFFF66;
+    }
+    100% {
+        background-color: #e8e8e8;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0px);
+    }
+    10%,
+    50%,
+    90% {
+        transform: translateX(2px);
+    }
+    20%,
+    60% {
+        transform: translateX(-2px);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100%;
+    padding-top: 18rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: fade 0.4s ease-out;
+    &__button-close {
+        position: fixed;
+        top: 12rem;
+        right: 5rem;
+        width: 5rem;
+        height: 5rem;
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        &--leftright,
+        &--rightleft {
+            position: absolute;
+            height: 0.4rem;
+            width: 5rem;
+            background-color: #e8e8e8;
+            border-radius: 2px;
+            transform: rotate(45deg);
+            transition: all .3s ease-in;
+        }
+        &--rightleft {
+            transform: rotate(-45deg);
+        }
+        &--close {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            text-align: center;
+            color: #e8e8e8;
+            text-shadow: 1px 1px 10px #0e0e0e;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        &:hover &--leftright {
+            box-shadow: 1px 1px 10px #0e0e0e;
+            transform: rotate(-45deg);
+        }
+        &:hover &--rightleft {
+            box-shadow: 1px 1px 10px #0e0e0e;
+            transform: rotate(45deg);
+        }
+        &:hover &--close {
+            opacity: 1;
+        }
+    }
+}

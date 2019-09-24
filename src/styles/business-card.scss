@@ -1,0 +1,43 @@
+    .main-content {
+        &__business-card {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            background: url('../static/bg-main.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        &__name-wrap {
+            padding: 1.5rem 2rem;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 3px 3px 5px #000000;
+            background-color: rgba(0, 0, 0, .6);
+            transform: skew(-15deg, 0deg);
+            & * {
+                transform: skew(15deg, 0deg);
+            }
+        }
+        &__general-info {
+            padding-bottom: 2rem;
+            font-size: 5.5rem;
+            text-transform: uppercase;
+            font-style: italic;
+            font-weight: 600;
+            &--achievements {
+                font-size: 1.8rem;
+            }
+        }
+    }
+    
+    @media (max-width: 650px) {
+        .main-content {
+            &__business-card {
+                background-attachment: scroll !important;
+            }
+        }
+    }

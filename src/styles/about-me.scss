@@ -1,0 +1,82 @@
+.main-content {
+    &__about-me {
+        width: 100%;
+        min-height: 100vh;
+        box-sizing: border-box;
+        padding-top: 10rem;
+        text-align: center;
+    }
+    &__about-me-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: " general-info general-info photo" "skills-list skills-list skills-list";
+        grid-row-gap: 1.6rem;
+        align-items: center;
+        box-sizing: border-box;
+        height: 100%;
+        margin-top: 5rem;
+        padding: 0 5rem;
+    }
+    &__photo {
+        grid-area: photo;
+        width: auto;
+        height: 35rem;
+        border-radius: 50%;
+        border: 2px solid #000000;
+    }
+    &__about-me-info {
+        grid-area: general-info;
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 300px;
+        padding: 3rem 2rem 0;
+        font-size: 2rem;
+        line-height: 2.4rem;
+        text-align: left;
+    }
+    &__skills-list {
+        grid-area: skills-list;
+        box-sizing: border-box;
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__section-description {
+        padding-left: 2.4rem;
+    }
+    &__skills-item {
+        box-sizing: border-box;
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+    &__skills-content-list {
+        margin-top: 1rem;
+        text-align: left;
+    }
+    &__skills-content-item {
+        box-sizing: border-box;
+        text-align: left;
+    }
+    &__text-info-wrap {
+        width: 50%;
+        min-width: 320px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 426px) {
+    .main-content {
+        &__photo {
+            width: 80vw;
+            height: auto;
+            border-radius: 50%;
+            border: 2px solid #000000;
+        }
+        &__about-me-wrap {
+            grid-template-areas: "photo photo photo" "general-info general-info general-info" "skills-list skills-list skills-list";
+        }
+        &__about-me-info {
+            text-align: justify;
+            padding: 3rem 0 0;
+        }
+    }
+}

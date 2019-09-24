@@ -1,0 +1,39 @@
+.main-footer {
+    padding: 1.7rem 3rem;
+    text-align: center;
+    background-color: #5d5d5d;
+    color: #e8e8e8;
+    font-size: 1.8rem;
+    & .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2.4rem;
+    }
+    &__button {
+        border: 0;
+        font-size: 1.6rem;
+        text-decoration: underline;
+        color: inherit;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        &:hover {
+            text-decoration: none;
+            text-shadow: 1px 1px 10px #000;
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+    &__info-controls-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    & .main-content__section-description {
+        font-size: 1.8rem;
+        line-height: 2rem;
+        font-weight: 400;
+    }
+}
