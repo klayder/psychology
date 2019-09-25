@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import 'slick-carousel';
 
+import agreementContent from './agreement';
+
 import "../../node_modules/reset-css/sass/_reset.scss";
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 import '../../node_modules/slick-carousel/slick/slick.scss';
@@ -47,7 +49,7 @@ const moneyback = `
 <div class="document-wrapper">
     <h3 class="main-content__section-description">УСЛОВИЯ ВОЗВРАТА</h3>
     <p class="main-content__skills-content-item text-content">
-        В случае, если Вы не получили заказ( не оказана услуга), Вам необходимо обратиться в службу технической поддержки по телефонам и e-mail. Менеджеры Вас обязательно проконсультируют».
+        В случае, если Вы не получили заказ( не оказана услуга), Вам необходимо обратиться поставщику услуги по телефонам и e-mail.».
     </p>
     <p class="main-content__skills-content-item text-content">
         Возврат денежных средств осуществляется на ту  карточку с которой была произведена оплата.
@@ -59,18 +61,8 @@ const moneyback = `
 `;
 
 const agreement = `
-<div class="document-wrapper">
-    <h3 class="main-content__section-description">Договор</h3>
-    <p class="main-content__skills-content-item text-content">
-        В случае, если Вы не получили заказ( не оказана услуга), Вам необходимо обратиться в службу технической поддержки по телефонам и e-mail. Менеджеры Вас обязательно проконсультируют».
-    </p>
-    <p class="main-content__skills-content-item text-content">
-        Возврат денежных средств осуществляется на ту  карточку с которой была произведена оплата.
-    </p>
-    <p class="main-content__skills-content-item text-content">
-        После совершения оплаты с использованием банковской карточки необходимо сохранять полученные карт-чеки (подтверждения об оплате, полученные в Интернет-магазине) для сверки с выпиской из карт-счёта (с целью подтверждения совершённых операций в случае возникновения спорных ситуаций)
-    </p>
-  
+<div class="document-wrapper" style="font-family: Arial;">
+    ${agreementContent}  
 </div>
 `;
 
@@ -124,8 +116,8 @@ $(document).ready(() => {
             type: 'GET',
             url: 'php/payment.php',
         }).done(function(url) {
+            debugger;
             window.location.href = url;
-            alert('Спасибо за заявку! Скоро мы с вами свяжемся.', arguments);
         });
         return false;
     });
@@ -146,6 +138,9 @@ $(document).ready(() => {
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+
     });
 
     $('#feedback').submit(() => {
